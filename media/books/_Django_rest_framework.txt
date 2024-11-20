@@ -1,0 +1,114 @@
+# Django rest framework (Django module)
+	- Backend development / Api creation
+	- Authentication
+	- Permissions
+	- Filtering and Searching
+
+# HMS
+
+# Db designing
+
+# Restaurant
+	# FoodCategory
+		- name
+
+	# Food
+		- id (PrimarKey,Unique) # Primary key means this field stores value that identifies the data in this table
+		- name (CharField)
+		- price (FloatField)
+		- category (Relation, Category) # Relation field are ForeignKey, which means this field stores primary key of other table's data
+		- menu (Relation,Menu) # When we relate a data as value in this field only the id comes as value not the whole field, reason : We can use id to indentify the data
+
+	# Order
+		- room (Relation, Room, nullable)
+		- food (Relation, Food)
+		- quantity (IntegarField)
+		- table (Relation, nullable)
+
+	# Table
+		- name (CharField)
+		- is_empty (BooleanField)
+
+	# Menu
+		- name (CharField)
+
+	# RestaurantBill
+		- order (Relation, Order)
+		- customer_name (CharField)
+		- customer_number (IntegarField)
+		- total_amount (FloatField)
+		- paid_amount (FloatField)
+
+
+# Frontdesk
+
+	# Customer 
+		- name (CharField)
+		- number (IntegarField)
+		- address (CharField)
+		- occupation (CharField)
+
+
+# Management
+	# Floor
+		- name (CharField)
+
+	# RoomType
+		- name (CharField)
+
+	# Room
+		- name (CharField)
+		- floor (Relation, Floor)
+		- description (TextField)
+		- type (Relation, RoomType)
+
+	# Employee
+		- name (CharField)
+		- number (IntegarField)
+		- position (CharField)
+		- address (TextField)
+
+	# Service
+		- name (CharField)
+		- description (TextField)
+
+# Accounting
+
+	# Bill
+		- customer (Relation, Customer)
+		- description (TextField)
+		- total_amount (FloatField)
+		
+	# Payment
+		- bill (Relation, Bill)
+		- paid_amount (FloatField)
+
+	# EmployeeSalary
+		- employee_name (Relation,Employee)
+		- paid_amount (FloatField)
+
+
+# Parking
+	# ParkingSection
+		- name (CharField)
+
+	# TicketCharges
+		- charge (FloatField)
+		- ticket (Relation, Ticket)
+
+
+	# Ticket
+		- guest_name (CharField)
+		- guest_number (IntegarField)
+		- section (Relation, ParkingSection)
+		- customer (Relation, Customer)
+
+
+# Relation Types
+
+# One to Many - For example A table is related to B table as One to Many, this means one A table data can be value of multiple B table's data, but One B table's data can only have One A table's data as value
+
+# Many to Many - For example A table is related to B table as Many to Many, this means one A table data can be value of multiple B table's data, and One B table's data can also have many A table's data as value
+
+# One to One - For example A table is related to B table as One to One, this means one A table data can be value of one B table's data, and One B table's data can also have only one A table's data as value
+
